@@ -3,10 +3,10 @@
   <h1>Digital Sentinel</h1>
   <p><b>Your AI-Powered Password Security Advisor</b></p>
   <p>
-    <a href="#-key-features">Key Features</a> •
-    <a href="#-how-it-works">How It Works</a> •
-    <a href="#-why-it-stands-out">Why It's Different</a> •
-    <a href="#-future-vision">Future Vision</a>
+    <a href="#-key-features"><img src="https://img.shields.io/badge/-Key%20Features-blue?style=flat-square" alt="Key Features"></a>
+    <a href="#-how-it-works"><img src="https://img.shields.io/badge/-How%20It%20Works-blue?style=flat-square" alt="How It Works"></a>
+    <a href="#-why-it-stands-out"><img src="https://img.shields.io/badge/-Why%20It's%20Different-blue?style=flat-square" alt="Why It's Different"></a>
+    <a href="#-future-vision"><img src="https://img.shields.io/badge/-Future%20Vision-blue?style=flat-square" alt="Future Vision"></a>
   </p>
 </div>
 
@@ -83,4 +83,3 @@ This is a Next.js project. To get started locally:
     ```
 
 Open http://localhost:3000 with your browser to see the result.
-
