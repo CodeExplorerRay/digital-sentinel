@@ -68,12 +68,12 @@ Finally, it feeds all this information to an onboard AI, which acts as a securit
 
 
 
+
 ## 🔒 Project Status
 
 Digital Sentinel is currently maintained as a closed-source project. While we are not accepting public code contributions at this time, we welcome your feedback and ideas.
 
 If you have a feature request, a bug report, or other suggestions, please feel free to open an issue on the GitHub repository.
 
-
 ---
-&copy; 2024 Digital Sentinel. All rights reserved.
+© 2024 Digital Sentinel. All rights reserved.
