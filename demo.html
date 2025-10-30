@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Sentinel - AI-Powered Security Advisor (Demo)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A192F;
+            color: #CCD6F6;
+        }
+        .bg-card-bg { background-color: #172A45; }
+        .border-secondary { border-color: rgba(29, 58, 95, 0.5); }
+        .text-accent { color: #00FF87; }
+        .bg-accent { background-color: #00FF87; }
+        .text-primary-dark { color: #0D253F; }
+        .text-secondary-slate { color: #8892B0; }
+        .ring-accent { --tw-ring-color: #00FF87; }
+        .hover\:border-accent:hover { border-color: #00FF87; }
+        .hover\:bg-accent-dark:hover { background-color: #00e67a; }
+        .hover\:text-accent:hover { color: #00FF87; }
+        .group:hover .group-hover\:text-accent { color: #00FF87; }
+        .group:hover .group-hover\:scale-110 { transform: scale(1.1); }
+        .group:hover .group-hover\:border-accent { border-color: #00FF87; }
+
+        .animated-gradient-border {
+            position: relative;
+            padding: 2px;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #172A45;
+        }
+        .animated-gradient-border::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: conic-gradient(from 180deg at 50% 50%, #00FF87, #30D5C8, #1D3A5F, #30D5C8, #00FF87);
+            animation: spin 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .animated-gradient-border:hover::before {
+            opacity: 1;
+        }
+        .animated-gradient-border-inner {
+            background: #172A45;
+            border-radius: 0.875rem;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .progress-bar-fill {
+            transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-6 px-4 sm:px-6 lg:px-8">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <h1 class="text-2xl font-bold text-white">Digital Sentinel</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#features" class="text-secondary-slate hover:text-accent transition-colors">Features</a>
+                <a href="#demo" class="text-secondary-slate hover:text-accent transition-colors">Demo</a>
+                <a href="#architecture" class="text-secondary-slate hover:text-accent transition-colors">Architecture</a>
+                <a href="https://github.com/CodeExplorerRay/digital-sentinel" target="_blank" rel="noopener noreferrer" class="bg-accent text-primary-dark font-semibold px-4 py-2 rounded-md hover:bg-accent-dark transition-colors">
+                    View on GitHub
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <section class="text-center py-20 md:py-32">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+                Your AI-Powered Password Security Advisor
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-secondary-slate leading-relaxed">
+                Instantly analyze password strength, check for data breach exposure, and get personalized security advice — all with a privacy-first design.
+            </p>
+            <div class="mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#demo" class="w-full sm:w-auto bg-accent text-primary-dark font-semibold px-8 py-3 rounded-lg hover:bg-accent-dark transition-colors transform hover:scale-105">
+                    Try the Demo
+                </a>
+                <a href="#features" class="w-full sm:w-auto border-2 border-accent text-accent font-semibold px-8 py-3 rounded-lg hover:bg-accent/10 transition-colors transform hover:scale-105">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+        <!-- What is Digital Sentinel? -->
+        <section class="py-16">
+            <div class="bg-card-bg border border-secondary rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">What is Digital Sentinel?</h2>
+                <p class="text-lg text-secondary-slate max-w-4xl mx-auto">
+                    Digital Sentinel is a free, open-source toolkit that demystifies cybersecurity. It provides clear, actionable intelligence on your passwords and digital habits. Founded on a "privacy-by-design" principle, every tool runs locally in your browser. <strong>No data ever leaves your device.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section id="features" class="py-16">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">Key Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-card-bg border border-secondary rounded-lg p-6 group hover:border-accent transition-colors">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 text-accent mb-4 border border-accent/20 group-hover:scale-110 group-hover:border-accent transition-transform">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-1-6-1-6 1" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Strength Analysis</h3>
+                    <p class="text-secondary-slate">Get an instant score on your password's complexity, length, and predictability based on entropy calculations.</p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="bg-card-bg border border-secondary rounded-lg p-6 group hover:border-accent transition-colors">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 text-accent mb-4 border border-accent/20 group-hover:scale-110 group-hover:border-accent transition-transform">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Privacy-First Breach Check</h3>
+                    <p class="text-secondary-slate">Securely check if your password has appeared in known data breaches using a k-Anonymity model that protects your privacy.</p>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="bg-card-bg border border-secondary rounded-lg p-6 group hover:border-accent transition-colors">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-accent/10 text-accent mb-4 border border-accent/20 group-hover:scale-110 group-hover:border-accent transition-transform">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">AI-Powered Advice</h3>
+                    <p class="text-secondary-slate">Receive personalized, context-aware security advice from a local AI to improve your digital hygiene.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section id="demo" class="py-16">
+            <h2 class="text-3xl font-bold text-white text-center mb-4">Interactive Demo</h2>
+            <p class="text-secondary-slate text-center mb-12 max-w-2xl mx-auto">This is a simulation. No data is sent anywhere. Type a password below to see how the analysis works.</p>
+            
+            <div class="animated-gradient-border">
+                <div class="animated-gradient-border-inner p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <!-- Left: Input & Metrics -->
+                        <div>
+                            <label for="password-input" class="font-semibold text-white mb-2 block">Simulated Password Analyzer</label>
+                            <input type="text" id="password-input" placeholder="Type a sample password..." class="w-full bg-primary-dark border-2 border-secondary rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 ring-accent">
+                            
+                            <div class="mt-8 space-y-6">
+                                <!-- Strength Score -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-sm font-medium text-white">Strength Score</span>
+                                        <span id="strength-score" class="text-sm font-bold text-accent">0 / 100</span>
+                                    </div>
+                                    <div class="w-full bg-secondary rounded-full h-2.5">
+                                        <div id="progress-bar" class="bg-red-600 h-2.5 rounded-full progress-bar-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <!-- Breach Status -->
+                                <div>
+                                    <h4 class="text-sm font-medium text-white mb-2">Breach Status (Simulated)</h4>
+                                    <div id="breach-status" class="flex items-center space-x-2 text-secondary-slate">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span>Enter a password to check.</span>
+                                    </div>
+                                </div>
+                                <!-- Crack Time -->
+                                <div>
+                                    <h4 class="text-sm font-medium text-white mb-2">Time to Crack (Simulated)</h4>
+                                    <div id="crack-time" class="flex items-center space-x-2 text-secondary-slate">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span>Instantly</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: AI Advisor -->
+                        <div class="bg-primary-dark/50 border border-secondary rounded-lg p-6 h-full">
+                            <h3 class="font-bold text-white text-lg mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 16.663c.527-1.053 1.66-1.663 2.837-1.663s2.31.61 2.837 1.663m-5.674 0l-1.5-1.5m8.674 1.5l1.5-1.5M12 21a9 9 0 100-18 9 9 0 000 18z" /></svg>
+                                AI Security Advisor
+                            </h3>
+                            <div id="ai-advice" class="text-secondary-slate space-y-3 text-sm">
+                                <p>Your personalized advice will appear here. The AI analyzes your password's weaknesses and provides actionable steps to improve your security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="py-16">
+            <h2 class="text-3xl font-bold text-white text-center mb-12">Privacy-First Architecture</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-4 text-center items-center">
+                    <!-- Step 1 -->
+                    <div class="bg-card-bg p-6 rounded-lg border border-secondary">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent/10 text-accent mb-4 mx-auto border border-accent/20">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.5 4.464z" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-white">1. Local Analysis</h3>
+                        <p class="text-sm text-secondary-slate mt-1">All analysis runs inside your browser. Nothing is sent to a server.</p>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="text-accent hidden md:block">
+                        <svg class="w-16 h-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-card-bg p-6 rounded-lg border border-secondary">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent/10 text-accent mb-4 mx-auto border border-accent/20">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-white">2. Anonymized Check</h3>
+                        <p class="text-sm text-secondary-slate mt-1">Only a tiny, anonymous part of your password's hash is used for breach checks (k-Anonymity).</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-4 md:my-0">
+                    <svg class="w-16 h-16 text-accent transform md:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4 text-center items-center">
+                    <!-- Step 3 -->
+                    <div class="bg-card-bg p-6 rounded-lg border border-secondary md:col-start-2">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent/10 text-accent mb-4 mx-auto border border-accent/20">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3" /></svg>
+                        </div>
+                        <h3 class="font-semibold text-white">3. Local AI Advice</h3>
+                        <p class="text-sm text-secondary-slate mt-1">The analysis results are fed to a local AI model (like Ollama) to generate your private, personalized advice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-secondary mt-24 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-2 lg:col-span-1">
+                    <a href="#" class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <h3 class="ml-2 text-xl font-bold text-white">Digital Sentinel</h3>
+                    </a>
+                    <p class="text-secondary-slate text-sm">Free security utilities for the digital age.</p>
+                </div>
+           
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Free Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Password Analyzer</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Password Generator</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Resources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Community</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">About</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Contribute (GitHub)</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Security Disclosures</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Terms of Use</a></li>
+                        <li><a href="#" class="text-secondary-slate hover:text-accent transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Social</h4>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-secondary-slate hover:text-white transition-colors" aria-label="Share on X">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-secondary-slate hover:text-white transition-colors" aria-label="Github">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-12 pt-8 border-t border-secondary/30 text-center text-sm text-secondary-slate">
+                <p>&copy; 2024 Digital Sentinel. This is a demo page for a conceptual project.</p>
+                <p class="mt-2">Built for the community, 100% Free.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password-input');
+            const strengthScoreEl = document.getElementById('strength-score');
+            const progressBarEl = document.getElementById('progress-bar');
+            const breachStatusEl = document.getElementById('breach-status');
+            const crackTimeEl = document.getElementById('crack-time');
+            const aiAdviceEl = document.getElementById('ai-advice');
+
+            const commonPasswords = ["password", "123456", "qwerty", "admin", "123456789"];
+
+            const adviceTemplates = {
+                initial: `<p>Your personalized advice will appear here. The AI analyzes your password's weaknesses and provides actionable steps to improve your security.</p>`,
+                short: `<p class="fade-in"><strong>Needs Improvement:</strong> Your password is too short. Aim for at least 12 characters to significantly increase its strength.</p>`,
+                common: `<p class="fade-in"><strong>CRITICAL:</strong> This password is extremely common and can be cracked instantly. Please change it immediately on all services where it's used.</p>`,
+                weak: `<p class="fade-in"><strong>Recommendation:</strong> Add a mix of uppercase letters, numbers, and symbols (like !@#$%) to make your password much harder to guess.</p>`,
+                medium: `<p class="fade-in"><strong>Good Progress:</strong> This is a decent password. To make it even better, consider making it longer or using a passphrase like "Correct-Horse-Battery-Staple".</p>`,
+                strong: `<p class="fade-in"><strong>Excellent Strength:</strong> This password appears strong and complex. Ensure it's unique to each account and consider using a password manager to keep track of it.</p>`
+            };
+
+            const breachStatusTemplates = {
+                inactive: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><span>Enter a password to check.</span>`,
+                safe: `<svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 1-6-1-6 1" /></svg><span class="text-green-400">No match found in simulated breach data.</span>`,
+                breached: `<svg class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg><span class="text-red-500">DANGER! Found in a simulated breach list.</span>`
+            };
+
+            const crackTimeTemplates = {
+                instant: `<span>Instantly</span>`,
+                minutes: `<span>A few minutes</span>`,
+                days: `<span>Several days</span>`,
+                years: `<span>Thousands of years</span>`,
+                forever: `<span>Billions of years</span>`
+            };
+
+            const updateUI = (password) => {
+                const length = password.length;
+                let score = 0;
+                let adviceKey = 'initial';
+                let breachKey = 'safe';
+                let crackTimeKey = 'instant';
+
+                if (length === 0) {
+                    aiAdviceEl.innerHTML = adviceTemplates.initial;
+                    breachStatusEl.innerHTML = breachStatusTemplates.inactive;
+                    crackTimeEl.querySelector('span').textContent = 'Instantly';
+                    strengthScoreEl.textContent = `0 / 100`;
+                    progressBarEl.style.width = `0%`;
+                    progressBarEl.style.backgroundColor = '#ef4444'; // red-600
+                    return;
+                }
+
+                // Calculate score
+                let charSetSize = 0;
+                if (/[a-z]/.test(password)) charSetSize += 26;
+                if (/[A-Z]/.test(password)) charSetSize += 26;
+                if (/\d/.test(password)) charSetSize += 10;
+                if (/[^a-zA-Z0-9]/.test(password)) charSetSize += 32;
+                
+                const entropy = length * Math.log2(charSetSize > 1 ? charSetSize : 2);
+                score = Math.min(100, Math.floor(entropy));
+
+                // Penalize common passwords
+                if (commonPasswords.includes(password.toLowerCase())) {
+                    score = Math.max(0, score - 80);
+                    adviceKey = 'common';
+                    breachKey = 'breached';
+                    crackTimeKey = 'instant';
+                } else if (length < 8) {
+                    score = Math.min(score, 25);
+                    adviceKey = 'short';
+                    crackTimeKey = 'instant';
+                } else if (score < 40) {
+                    adviceKey = 'weak';
+                    crackTimeKey = 'minutes';
+                } else if (score < 70) {
+                    adviceKey = 'medium';
+                    crackTimeKey = 'days';
+                } else if (score < 100) {
+                    adviceKey = 'strong';
+                    crackTimeKey = 'years';
+                } else {
+                    adviceKey = 'strong';
+                    crackTimeKey = 'forever';
+                }
+                
+                score = Math.max(0, Math.min(100, score));
+
+                // Update Strength Score & Progress Bar
+                strengthScoreEl.textContent = `${score} / 100`;
+                progressBarEl.style.width = `${score}%`;
+                if (score < 40) {
+                    progressBarEl.style.backgroundColor = '#ef4444'; // red-600
+                } else if (score < 70) {
+                    progressBarEl.style.backgroundColor = '#f59e0b'; // amber-500
+                } else {
+                    progressBarEl.style.backgroundColor = '#22c55e'; // green-500
+                }
+
+                // Update Breach Status
+                breachStatusEl.innerHTML = breachStatusTemplates[breachKey];
+
+                // Update Crack Time
+                crackTimeEl.querySelector('span').textContent = crackTimeTemplates[crackTimeKey].replace(/<\/?span>/g, '');
+
+                // Update AI Advice
+                aiAdviceEl.innerHTML = adviceTemplates[adviceKey];
+            };
+
+            passwordInput.addEventListener('input', (e) => {
+                updateUI(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>
+```<!--
+[PROMPT_SUGGESTION]Can you make the interactive demo more advanced? For example, add a password generator tab next to the analyzer.[/PROMPT_SUGGESTION]
+[PROMPT_SUGGESTION]Refactor the JavaScript in the demo page to be more modular and easier to read.[/PROMPT_SUGGESTION]
+-->
