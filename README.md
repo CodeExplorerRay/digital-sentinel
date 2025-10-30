@@ -3,10 +3,19 @@
   <h1>Digital Sentinel</h1>
   <p><b>Your AI-Powered Password Security Advisor</b></p>
   <p>
-    <a href="#-key-features"><img src="https://img.shields.io/badge/-Key%20Features-blue?style=flat-square" alt="Key Features"></a>
-    <a href="#-how-it-works"><img src="https://img.shields.io/badge/-How%20It%20Works-blue?style=flat-square" alt="How It Works"></a>
-    <a href="#-why-it-stands-out"><img src="https://img.shields.io/badge/-Why%20It's%20Different-blue?style=flat-square" alt="Why It's Different"></a>
-    <a href="#-future-vision"><img src="https://img.shields.io/badge/-Future%20Vision-blue?style=flat-square" alt="Future Vision"></a>
+    <a href="#-key-features">Key Features</a> •
+    <a href="#-how-it-works">How It Works</a> •
+    <a href="#-why-it-stands-out">Why It's Different</a> •
+    <a href="#-future-vision">Future Vision</a>
+  </p>
+</div>
+<div align="center">
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+    <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest">
   </p>
 </div>
 
@@ -56,6 +65,7 @@ Finally, it feeds all this information to an onboard AI, which acts as a securit
 
 *   **Team & Family Security Hub:** An upcoming feature will allow users to create a secure dashboard to manage and monitor the password health of a small team or family, promoting collective security without sharing actual passwords.
 *   **Breach Alert System:** We're developing an opt-in service that will proactively monitor for new data breaches and alert you if your email address appears, so you can take immediate action.
+
 
 ---
 
