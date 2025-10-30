@@ -67,29 +67,13 @@ Finally, it feeds all this information to an onboard AI, which acts as a securit
 *   **Breach Alert System:** We're developing an opt-in service that will proactively monitor for new data breaches and alert you if your email address appears, so you can take immediate action.
 
 
+
+## 🔒 Project Status
+
+Digital Sentinel is currently maintained as a closed-source project. While we are not accepting public code contributions at this time, we welcome your feedback and ideas.
+
+If you have a feature request, a bug report, or other suggestions, please feel free to open an issue on the GitHub repository.
+
+
 ---
-
-### Getting Started with Development
-
-This is a Next.js project. To get started locally:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/digital-sentinel.git
-    cd digital-sentinel
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Set up environment variables:**
-    Create a `.env.local` file and configure it based on `.env.example` (if available). You will need to set up your Ollama instance for the AI features.
-
-4.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-
-Open http://localhost:3000 with your browser to see the result.
+&copy; 2024 Digital Sentinel. All rights reserved.
