@@ -1,0 +1,57 @@
+/* ============================================================
+   AnimatedCard.css
+   Sentinel Themed Animated Border — Only Visible When Active
+   ============================================================ */
+
+.animated-card-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Outer gradient border container */
+.animated-card-border {
+  border-radius: 12px;
+  padding: 2px; /* border thickness */
+  transition: all 0.3s ease-in-out;
+  background: transparent; /* No border by default */
+}
+
+/* Show border + animate only when active */
+.animated-card-border.active {
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  animation: sentinelGlow 8s ease-in-out infinite;
+}
+
+/* Inner content area */
+.animated-card-inner {
+  background-color: #172a45; /* Sentinel dark */
+  border-radius: 10px;
+  padding: 2rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Gradient border animation */
+@keyframes sentinelGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
