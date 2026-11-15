@@ -112,20 +112,14 @@ export async function checkBreachWithHIBP(password) {
      * Uses platform-appropriate cryptographic APIs
      */
     let hashHex;
-    if (typeof window !== "undefined" && window.crypto?.subtle) {
-      // Browser implementation using Web Crypto API
+    if (globalThis.crypto?.subtle) {
       const encoder = new TextEncoder();
       const data = encoder.encode(password);
-      const hashBuffer = await window.crypto.subtle.digest("SHA-1", data);
+      const hashBuffer = await globalThis.crypto.subtle.digest("SHA-1", data);
       const hashArray = Array.from(new Uint8Array(hashBuffer));
       hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("").toUpperCase();
     } else {
-      // Node.js implementation using crypto module
-      const crypto = require("crypto");
-      hashHex = crypto.createHash("sha1")
-        .update(password, "utf8")
-        .digest("hex")
-        .toUpperCase();
+      throw new Error("Web Crypto API is unavailable");
     }
 
     const prefix = hashHex.slice(0, 5);
@@ -418,25 +412,16 @@ export function generatePassword(
    * Cryptographically Secure Random Generation
    * Uses platform-appropriate CSPRNG implementations
    */
-  if (typeof window !== "undefined" && window.crypto?.getRandomValues) {
-    // Browser: Web Crypto API
+  if (globalThis.crypto?.getRandomValues) {
     const randomValues = new Uint32Array(length);
-    window.crypto.getRandomValues(randomValues);
+    globalThis.crypto.getRandomValues(randomValues);
     
     for (let i = 0; i < length; i++) {
       const randomIndex = randomValues[i] % charSetLength;
       password += charSet[randomIndex];
     }
   } else {
-    // Node.js: crypto.randomBytes
-    const crypto = require("crypto");
-    const randomBytes = crypto.randomBytes(length * 4); // Over-sample for uniformity
-    
-    for (let i = 0; i < length; i++) {
-      const randomValue = randomBytes.readUInt32BE(i * 4);
-      const randomIndex = randomValue % charSetLength;
-      password += charSet[randomIndex];
-    }
+    throw new Error("Web Crypto API is unavailable");
   }
 
   // Final validation

@@ -13,7 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".", // ✅ Added this line
     "paths": {
       "@/*": ["./app/*"] // ✅ This now works with baseUrl set
     },

@@ -69,7 +69,7 @@ const ResourceLinks = () => (
           Recommended Free & Trusted Services
         </h2>
         <p className="mt-4 text-lg text-text-secondary max-w-3xl mx-auto">
-          We don't sell software, but we strongly recommend these essential
+          We don&apos;t sell software, but we strongly recommend these essential
           third-party tools to secure your new passwords.
         </p>
       </div>
