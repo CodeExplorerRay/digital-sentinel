@@ -38,7 +38,7 @@ export default function Footer() {
                     <div className="col-span-2 md:col-span-1">
                         <a href="/" className="flex items-center mb-4">
                             <Image
-                                src="/images/logo.png"
+                                src="/Images/logo.png"
                                 alt="Digital Sentinel Logo"
                                 width={32}
                                 height={32}

@@ -27,7 +27,7 @@ export default function Header() {
           {/* Logo and App Name */}
           <Link href="/" className="flex-shrink-0 flex items-center" onClick={closeMenu}>
             <Image
-              src="/images/logo.png"
+              src="/Images/logo.png"
               alt="Digital Sentinel Logo"
               width={40}
               height={40}

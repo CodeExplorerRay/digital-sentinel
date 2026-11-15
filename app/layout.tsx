@@ -7,8 +7,8 @@ export const metadata = {
   title: "Digital Sentinel",
   description: "Cybersecurity tools and insights",
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: '/favicon.ico',
+    apple: '/Images/logo.png',
   },
 };
 
