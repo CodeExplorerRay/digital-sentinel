@@ -55,7 +55,7 @@ Then, to check for public exposure, it cleverly sends only the first five charac
 
 Finally, it feeds all this information to an onboard AI, which acts as a security expert, analyzing the results and writing personalized, actionable advice just for you.
 
-## 🏆 Why It Stands Out
+## 🛡️ Key Differentiators
 
 1.  **Integrated AI Advisor:** Unlike tools that just give a "good" or "bad" rating, Digital Sentinel provides personalized, contextual advice from an AI, explaining *why* a password is weak and *how* to improve your overall security posture.
 2.  **Complete Security Loop:** It’s an all-in-one toolkit. You can analyze a password, see if it's breached, get advice on how to improve it, and generate a new, secure one—all in a single, seamless workflow.
